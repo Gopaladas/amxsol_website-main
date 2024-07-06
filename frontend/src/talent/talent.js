@@ -123,6 +123,25 @@ const services = [
     ],
     backgroundColor: "#d3adf7",
   },
+  {
+    id: 6,
+    title: "Engineering Workshop Service",
+    image: page5Image,
+    description:
+      "Engineering Recruiters are always in high demand. Companies need a staffing firm that can find the best in the fields they need. At TALENT, we can provide that through expert recruiting and consulting. We work together with companies to understand what they want in a candidate. In engineering, we offer you the best candidate from around the globe, who not only has the right work experience in a specified stream but, also has the capability and understands the technicalities of the position being offered.",
+    points: [
+      "Software Engineers",
+      "Aerospace Engineers",
+      "Civil Engineers",
+      "Environmental Engineers",
+      "Bio-Medical Engineers",
+      "Automation & Robotics Engineers",
+      "Cyber Security Engineers",
+      "Data Scientist",
+      "Data Analyst",
+    ],
+    backgroundColor: "#f8b100",
+  },
 ];
 
 const Talent = () => {

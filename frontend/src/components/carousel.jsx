@@ -30,19 +30,19 @@ const Carousel = ({ slides }) => {
   }
 
   return (
-    <div className="relative flex justify-center items-center h-full w-full ">
-      <button
+    <div className=" relative flex justify-center items-center h-full w-full ">
+      {/* <button
         className="absolute top-1/2 left-8 text-2xl font-bold text-white bg-gray-800 rounded-full w-12 h-12 flex justify-center items-center"
         onClick={prevSlide}
       >
         &#10094;
-      </button>
-      <button
+      </button> */}
+      {/* <button
         className="absolute top-1/2 right-8 text-2xl font-bold text-white bg-gray-800 rounded-full w-12 h-12 flex justify-center items-center"
         onClick={nextSlide}
       >
         &#10095;
-      </button>
+      </button> */}
       {slides.map((slide, index) => (
         <div
           className={
@@ -61,7 +61,7 @@ const Carousel = ({ slides }) => {
           )}
         </div>
       ))}
-      <div className="absolute bottom-8 flex space-x-2">
+      {/* <div className="absolute bottom-8 flex space-x-2">
         {slides.map((slide, index) => (
           <button
             key={index}
@@ -71,7 +71,7 @@ const Carousel = ({ slides }) => {
             onClick={() => goToSlide(index)}
           ></button>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

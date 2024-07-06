@@ -248,17 +248,17 @@ const CarrerApp = () => {
     {
       id: 10,
       title: "Other",
-      location: "",
-      salary: "",
-      description: [],
-      image: jobImage6,
+      location: null,
+      salary: null,
+      description: null,
+      image: null,
     },
   ];
 
   const jobTitles = jobs.map((job) => job.title);
 
   return (
-    <div className="  relative top-[50px] mb-32 ">
+    <div className="  relative top-[0px] mb-32 ">
       <div
         className="bg-image h-80  w-full flex items-center justify-center overflow-hidden relative"
         style={{
@@ -280,7 +280,7 @@ const CarrerApp = () => {
           <div className="m-auto grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-3   gap-8">
             {jobs.map((job) => (
               <div key={job.id} className="flex items-stretch m-auto">
-                <JobCard job={job} />
+                {job.image !== null && <JobCard job={job} />}
               </div>
             ))}
           </div>

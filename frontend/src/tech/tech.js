@@ -16,6 +16,7 @@ import eight from "./images/intelligent-automation.jpg";
 import nine from "./images/microsoft-solutions.jpg";
 import ten from "./images/mobile-applications.jpg";
 import eleven from "./images/technology-integration.jpg";
+import twelve from "../assets/ten.jpg";
 
 const experiences = [
   {
@@ -123,6 +124,13 @@ const experiences = [
       "Integrating diverse technologies for seamless operations.",
       "Ensuring interoperability and data consistency.",
       "Managing integrations to support business processes.",
+    ],
+  },
+  {
+    name: "Devops",
+    image: twelve,
+    description: [
+      "DevOps is a methodology that integrates software development (Dev) and IT operations (Ops) to enhance collaboration and communications between teams,aiming to deliver software more efficiently.",
     ],
   },
 ];

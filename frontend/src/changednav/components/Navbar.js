@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import logo from "./logo.jpeg";
+import logo from "./logonew.jpeg";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -26,6 +26,7 @@ const Navbar = () => {
 
   const closeDropdown = () => {
     setActiveDropdown(null);
+    setIsOpen(false);
   };
 
   const toggleSearch = () => {
@@ -187,6 +188,160 @@ const Navbar = () => {
         {/* Secondary Navbar for 'Who we are' */}
         {!isMobile && activeDropdown === "whoWeAre" && (
           <div className="absolute bg-gray-800 mt-1 inset-x-0 top-full z-20">
+            {/* <div className="container mx-auto flex space-x-4">
+              <Link
+                onClick={closeDropdown}
+                className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900 flex items-center"
+              >
+                Our Services
+                <svg
+                  className="ml-1 h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </Link>
+              <div className="flex-1 flex justify-center">
+                <Link
+                  to="/services"
+                  onClick={closeDropdown}
+                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
+                >
+                  Business Solution
+                </Link>
+                <Link
+                  to="/tech"
+                  onClick={closeDropdown}
+                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
+                >
+                  Technology Solution
+                </Link>
+                <Link
+                  to="/business"
+                  onClick={closeDropdown}
+                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
+                >
+                  Business Impact
+                </Link>
+
+                <Link
+                  to="/industries"
+                  onClick={closeDropdown}
+                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
+                >
+                  Industries
+                </Link>
+                <Link
+                  to="talent"
+                  onClick={closeDropdown}
+                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
+                >
+                  Talent Services
+                </Link>
+              </div>
+            </div> */}
+
+            <div className="container mx-auto flex space-x-4">
+              <Link
+                onClick={closeDropdown}
+                className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900 flex items-center"
+              >
+                Capabilities
+                <svg
+                  className="ml-1 h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </Link>
+              <div className="flex-1 flex justify-center">
+                <Link
+                  to="/aboutus"
+                  onClick={closeDropdown}
+                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
+                >
+                  About Us
+                </Link>
+                <Link
+                  to="/academy"
+                  onClick={closeDropdown}
+                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
+                >
+                  Amxsol Academy
+                </Link>
+                <Link
+                  to="/foundation"
+                  onClick={closeDropdown}
+                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
+                >
+                  Amxsol Foundation
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
+        {/* Secondary Navbar for 'What we do' */}
+        {!isMobile && activeDropdown === "whatWeDo" && (
+          <div className="absolute bg-gray-800 mt-1 inset-x-0 top-full z-20">
+            {/* <div className="container mx-auto flex space-x-4">
+              <Link
+                onClick={closeDropdown}
+                className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900 flex items-center"
+              >
+                Capabilities
+                <svg
+                  className="ml-1 h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </Link>
+              <div className="flex-1 flex justify-center">
+                <Link
+                  to="/aboutus"
+                  onClick={closeDropdown}
+                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
+                >
+                  About Us
+                </Link>
+                <Link
+                  to="/academy"
+                  onClick={closeDropdown}
+                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
+                >
+                  Amxsol Academy
+                </Link>
+                <Link
+                  to="/foundation"
+                  onClick={closeDropdown}
+                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
+                >
+                  Amxsol Foundation
+                </Link>
+              </div>
+            </div> */}
+
             <div className="container mx-auto flex space-x-4">
               <Link
                 onClick={closeDropdown}
@@ -248,55 +403,6 @@ const Navbar = () => {
             </div>
           </div>
         )}
-        {/* Secondary Navbar for 'What we do' */}
-        {!isMobile && activeDropdown === "whatWeDo" && (
-          <div className="absolute bg-gray-800 mt-1 inset-x-0 top-full z-20">
-            <div className="container mx-auto flex space-x-4">
-              <Link
-                onClick={closeDropdown}
-                className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900 flex items-center"
-              >
-                Capabilities
-                <svg
-                  className="ml-1 h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </Link>
-              <div className="flex-1 flex justify-center">
-                <Link
-                  to="/aboutus"
-                  onClick={closeDropdown}
-                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
-                >
-                  About Us
-                </Link>
-                <Link
-                  to="/academy"
-                  onClick={closeDropdown}
-                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
-                >
-                  Amxsol Academy
-                </Link>
-                <Link
-                  to="/foundation"
-                  onClick={closeDropdown}
-                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
-                >
-                  Amxsol Foundation
-                </Link>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
 
       {/* Mobile Dropdown Menu */}
@@ -316,6 +422,7 @@ const Navbar = () => {
             }`}
           >
             Who we are
+            {/* What we do */}
             <svg
               className="ml-1 h-4 w-4"
               fill="none"
@@ -332,25 +439,95 @@ const Navbar = () => {
           </button>
           {activeDropdown === "whoWeAre" && (
             <div className="pl-4">
-              {/* <Link
+              <Link
+                to="/aboutus"
                 onClick={closeDropdown}
-                className="block px-4 py-2 text-gray-300 hover:text-white flex items-center"
+                className="block px-4 py-2 text-gray-300 hover:text-white"
               >
-                Our Services
-                <svg
-                  className="ml-1 h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </Link> */}
+                About Us
+              </Link>
+              <Link
+                to="/academy"
+                onClick={closeDropdown}
+                className="block px-4 py-2 text-gray-300 hover:text-white"
+              >
+                Amxsol Academy
+              </Link>
+              <Link
+                to="/foundation"
+                onClick={closeDropdown}
+                className="block px-4 py-2 text-gray-300 hover:text-white"
+              >
+                Amxsol Foundation
+              </Link>
+            </div>
+          )}
+          <button
+            onClick={() => toggleDropdown("whatWeDo")}
+            className={`block px-4 py-2 text-gray-300 hover:text-white w-full text-left flex items-center ${
+              activeDropdown === "whatWeDo" ? "bg-blue-500" : ""
+            }`}
+          >
+            What we do
+            {/* who we are */}
+            <svg
+              className="ml-1 h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </button>
+          {activeDropdown === "whatWeDo" && (
+            // <div className="pl-4">
+            //   {/* <Link
+            //     onClick={closeDropdown}
+            //     className="block px-4 py-2 text-gray-300 hover:text-white flex items-center"
+            //   >
+            //     Capabilities
+            //     <svg
+            //       className="ml-1 h-4 w-4"
+            //       fill="none"
+            //       viewBox="0 0 24 24"
+            //       stroke="currentColor"
+            //     >
+            //       <path
+            //         strokeLinecap="round"
+            //         strokeLinejoin="round"
+            //         strokeWidth="2"
+            //         d="M9 5l7 7-7 7"
+            //       />
+            //     </svg>
+            //   </Link> */}
+            //   <Link
+            //     to="/aboutus"
+            //     onClick={closeDropdown}
+            //     className="block px-4 py-2 text-gray-300 hover:text-white"
+            //   >
+            //     About Us
+            //   </Link>
+            //   <Link
+            //     to="/academy"
+            //     onClick={closeDropdown}
+            //     className="block px-4 py-2 text-gray-300 hover:text-white"
+            //   >
+            //     Amxsol Academy
+            //   </Link>
+            //   <Link
+            //     to="/foundation"
+            //     onClick={closeDropdown}
+            //     className="block px-4 py-2 text-gray-300 hover:text-white"
+            //   >
+            //     Amxsol Foundation
+            //   </Link>
+            // </div>
+            <div className="pl-4">
               <Link
                 to="/services"
                 onClick={closeDropdown}
@@ -385,71 +562,6 @@ const Navbar = () => {
                 className="block px-4 py-2 text-gray-300 hover:text-white"
               >
                 Talent Services
-              </Link>
-            </div>
-          )}
-          <button
-            onClick={() => toggleDropdown("whatWeDo")}
-            className={`block px-4 py-2 text-gray-300 hover:text-white w-full text-left flex items-center ${
-              activeDropdown === "whatWeDo" ? "bg-blue-500" : ""
-            }`}
-          >
-            What we do
-            <svg
-              className="ml-1 h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          </button>
-          {activeDropdown === "whatWeDo" && (
-            <div className="pl-4">
-              {/* <Link
-                onClick={closeDropdown}
-                className="block px-4 py-2 text-gray-300 hover:text-white flex items-center"
-              >
-                Capabilities
-                <svg
-                  className="ml-1 h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </Link> */}
-              <Link
-                to="/aboutus"
-                onClick={closeDropdown}
-                className="block px-4 py-2 text-gray-300 hover:text-white"
-              >
-                About Us
-              </Link>
-              <Link
-                to="/academy"
-                onClick={closeDropdown}
-                className="block px-4 py-2 text-gray-300 hover:text-white"
-              >
-                Amxsol Academy
-              </Link>
-              <Link
-                to="/foundation"
-                onClick={closeDropdown}
-                className="block px-4 py-2 text-gray-300 hover:text-white"
-              >
-                Amxsol Foundation
               </Link>
             </div>
           )}

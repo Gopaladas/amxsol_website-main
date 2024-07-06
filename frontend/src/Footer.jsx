@@ -150,7 +150,7 @@ const Footer = () => {
           </a>
         </div>
       </div>
-      <div className="copyright-container  text-center py-3 text-sm text-white m-10 rounded-md shadow-xl ring-1">
+      <div className="copyright-container  text-center py-3 text-sm text-white m-10">
         COPYRIGHT &copy; 2022 - 2024 ,AMXSOL ALL RIGHTS RESERVED PRIVACY POLICY.
         All rights reserved.
       </div>

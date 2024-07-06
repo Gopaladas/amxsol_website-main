@@ -327,13 +327,6 @@
   flex: 1;
 }
 
-/* .image-container { */
-/* float: right; */
-/* width: 50%; */
-/* margin-left: -280px; */
-/* margin-bottom: 20px; */
-/* } */
-
 .image-container img {
   float: right;
   width: 100%;
@@ -472,57 +465,6 @@
   }
 }
 
-/* changes */
-/* button {
-  text-decoration: none;
-  position: relative;
-  border: none;
-  font-size: 5px;
-  font-family: inherit;
-  cursor: pointer;
-  color: #fff;
-  width: 6em;
-  height: 3em;
-  line-height: 2em;
-  padding: 5px;
-  text-align: center;
-  background: linear-gradient(90deg, #03a9f4, #4180f4, #3bc1ff, #03a9f4);
-  background-size: 300%;
-  border-radius: 30px;
-  z-index: 1;
-  margin: 10px;
-} */
-
-/* button:hover {
-  animation: ani 8s linear infinite;
-  border: none;
-} */
-
-/* @keyframes ani {
-  0% {
-    background-position: 0%;
-  }
-
-  100% {
-    background-position: 400%;
-  }
-} */
-
-/* button:before {
-  content: "";
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  right: -5px;
-  bottom: -5px;
-  z-index: -1;
-  /* text-align: center; 
-  background: linear-gradient(90deg, #03a9f4, #4153f4, #3bb7ff, #03a9f4);
-  background-size: 400%;
-  border-radius: 35px;
-  transition: 1s;
-} */
-
 button:hover::before {
   filter: blur(20px);
 }
@@ -530,183 +472,6 @@ button:hover::before {
 button:active {
   background: linear-gradient(32deg, #03a9f4, #e0b8cf, #e7e2b1, #9cd5f0);
 }
-
-/* card experiment */
-
-/* card experiment end */
-
-/* card changes top*/
-
-/* .card {
-    perspective: 1000px;
-}
-
-.card:hover .front {
-    transform: rotateY(180deg);
-}
-
-.card:hover .back {
-    transform: rotateY(0deg);
-}
-
-.front, .back {
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-} */
-
-/* .front {
-    transform: rotateY(0deg);
-}
-
-.back {
-    transform: rotateY(-180deg);
-/* } */
-
-/* new top card changes */
-
-/*
-
-.card {
-    position: relative;
-    width: 190px;
-    height: 264px;
-    background-color: #000;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    padding: 12px;
-    gap: 12px;
-    border-radius: 8px;
-    cursor: pointer;
-    color: white;
-    margin:auto;
-  }
-  
-  .card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    left: -5px;
-    margin: auto;
-    width: 200px;
-    height: 264px;
-    border-radius: 10px;
-    background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% );
-    z-index: -10;
-    pointer-events: none;
-    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
-
-  
-  
-  .card::after {
-    content: "";
-    z-index: -1;
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
-    transform: translate3d(0, 0, 0) scale(0.95);
-    filter: blur(20px);
-  }
-
- 
-  
-  .heading {
-    font-size: 20px;
-    text-transform: capitalize;
-    font-weight: 700;
-    color:#000;
-    background-color:rgba(255, 255, 255, 0.2);
-  }
-  
-  .card p:not(.heading) {
-    font-size: 14px;
-  }
-
- 
-  
-  .card p:last-child {
-    color: #e81cff;
-    font-weight: 600;
-  }
-  
-  .card:hover::after {
-    filter: blur(30px);
-  }
-
- 
-  
-  .card:hover::before {
-    transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
-  } */
-
-/* .card {
-    position: relative;
-    width: 240px;
-    height: 240px;
-    background-color: #000;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    padding: 12px;
-    gap: 12px;
-    border-radius: 8px;
-    cursor: pointer;
-    color: white;
-    margin:auto;
-  }
-  
-  .card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    left: -5px;
-    margin: auto;
-    width: 250px;
-    height: 250px;
-    border-radius: 10px;
-    background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% );
-    z-index: -10;
-    pointer-events: none;
-    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
-  
-  .card::after {
-    content: "";
-    z-index: -1;
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
-    transform: translate3d(0, 0, 0) scale(0.95);
-    filter: blur(20px);
-    
-  }
-  
-  .heading {
-    font-size: 20px;
-    text-transform: capitalize;
-    font-weight: 700;
-    color:#000;
-  }
-  
-  .card p:not(.heading) {
-    font-size: 14px;
-  } */
-
-/* .card p:last-child {
-    font-weight: 1000;
-  }
-  
-  .card:hover::after {
-    filter: blur(30px);
-  }
-  
-  .card:hover .card-content{
-        background-color: rgba(252, 236, 236, 0.8);
-  }
-  .card:hover::before {
-    transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
-  }*/
 
 .withbutton {
   width: 300px;
@@ -775,35 +540,6 @@ button:active {
   line-height: 1.4;
 }
 
-/* start image */
-
-/* 2 crad */
-
-/* .card1 {
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
-    border-radius: 20px;
-    transition: all .3s;
-   }
-   
-   .card2 {
-    padding:10px;
-    width: 100%;
-    height: 100%;
-    background-color: #17033d;
-    transition: all .2s;
-   }
-   
-   .card2:hover {
-    transform: scale(0.98);
-    border-radius: 20px;
-   }
-   
-   .card1:hover {
-    box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
-   } */
-
 /* Base styles for card1 */
 .card1 {
   width: 100%;
@@ -853,34 +589,6 @@ button:active {
     border-radius: 10px;
   }
 }
-
-/* scrolling code */
-
-/* Add this to your CSS file */
-
-/* Define a class for the elements that will have the transition effect */
-/* .transition-element {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s, transform 0.5s;
-} */
-
-/* Add this class to the elements that should have the transition effect */
-/* For example, you can add it to the `.card` elements */
-/* .card {
-  &.transition-element {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s, transform 0.5s;
-  }
-} */
-
-/* Add this to your CSS file */
-/* Define the styles for the 'in-view' class */
-/* .in-view {
-  opacity: 1;
-  transform: translateY(0);
-} */
 
 /* new cards */
 

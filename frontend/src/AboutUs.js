@@ -322,7 +322,7 @@ const AboutUs = () => {
         initial={{ x: -100 }}
         animate={{ x: 0 }}
         transition={{ duration: 1 }}
-        /*className="partnership-container shadow-2xl  rounded-md"*/ className="card1 relative mt-[120px] mb-[50px] justify-center"
+        /*className="partnership-container shadow-2xl  rounded-md"*/ className="card1 relative mb-[50px] justify-center"
       >
         <div className="card2 ">
           <h2 className="text-white">
