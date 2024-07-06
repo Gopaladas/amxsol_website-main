@@ -45,20 +45,23 @@ const Navbar = () => {
         <div className="container mx-auto flex flex-col">
           <div className="flex justify-between items-center">
             <div className="relative flex items-center">
-              <img
-                src={logo} // Path to your logo image
-                alt="Logo"
-                className="h-8 w-auto transition-transform duration-300 ease-in-out"
-              />
+              <Link to="/" onClick={closeDropdown}>
+                <img
+                  src={logo} // Path to your logo image
+                  alt="Logo"
+                  className="h-8 w-auto transition-transform duration-300 ease-in-out rounded-md"
+                />
+              </Link>
             </div>
             <div className="hidden md:flex space-x-8 justify-center flex-1">
-              <Link
+
+              {/* <Link
                 to="/"
                 onClick={closeDropdown}
                 className="text-gray-300 hover:text-white px-3 py-2 hover:bg-blue-300"
               >
                 Home
-              </Link>
+              </Link> */}
               <div className="relative">
                 <button
                   onClick={() => toggleDropdown("whoWeAre")}

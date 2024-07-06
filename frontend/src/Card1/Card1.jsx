@@ -37,7 +37,7 @@ const Card1 = () => {
   };
 
   return (
-    <div className="main-section lg:h-[50vh]  ">
+    <div className="main-section">
       <div
         className="parent   grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-10"
         onScroll={handleScroll}
