@@ -54,7 +54,6 @@ const Navbar = () => {
               </Link>
             </div>
             <div className="hidden md:flex space-x-8 justify-center flex-1">
-
               {/* <Link
                 to="/"
                 onClick={closeDropdown}
@@ -411,13 +410,13 @@ const Navbar = () => {
       {/* Mobile Dropdown Menu */}
       {isMobile && isOpen && (
         <div className="absolute bg-gray-800 w-full p-4 z-20">
-          <Link
+          {/* <Link
             to="/"
             onClick={closeDropdown}
             className="block px-4 py-2 text-gray-300 hover:text-white"
           >
             Home
-          </Link>
+          </Link> */}
           <button
             onClick={() => toggleDropdown("whoWeAre")}
             className={`block px-4 py-2 text-gray-300 hover:text-white w-full text-left flex items-center ${

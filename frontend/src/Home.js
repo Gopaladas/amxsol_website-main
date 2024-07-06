@@ -13,6 +13,7 @@ import {
   FaCloud,
   FaDatabase,
   FaServer,
+  FaInfinity,
 } from "react-icons/fa";
 import one from "./one.mp4";
 import two from "./two.mp4";
@@ -472,64 +473,75 @@ const Home = () => {
       </div>
 
       <style jsx global>{`
-  html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-  }
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          height: 100%;
+          overflow-x: hidden; /* Prevent horizontal scrolling */
+          box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
 
-  *, *::before, *::after {
-    box-sizing: inherit; /* Inherit the box-sizing property for all elements */
-  }
+        *,
+        *::before,
+        *::after {
+          box-sizing: inherit; /* Inherit the box-sizing property for all elements */
+        }
 
-  .container {
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    max-width: calc(100vw); /* Adjust to include scrollbar width */
-    overflow-x: hidden; /* Prevent horizontal scrolling within the container */
-  }
+        .container {
+          padding: 0;
+          margin: 0;
+          width: 100%;
+          max-width: calc(100vw); /* Adjust to include scrollbar width */
+          overflow-x: hidden; /* Prevent horizontal scrolling within the container */
+        }
 
-  .carousel-container {
-    width: 100%;
-    margin: 0;
-    overflow-x: hidden; /* Prevent horizontal scrolling within the carousel container */
-  }
+        .carousel-container {
+          width: 100%;
+          margin: 0;
+          overflow-x: hidden; /* Prevent horizontal scrolling within the carousel container */
+        }
 
-  .carousel-item {
-    width: 100%;
-  }
+        .carousel-item {
+          width: 100%;
+        }
 
-  img {
-    width: 100%;
-    height: auto;
-  }
+        img {
+          width: 100%;
+          height: auto;
+        }
 
-  header, nav {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    max-width: calc(100vw); /* Ensure the header and nav do not exceed the viewport width */
-  }
+        header,
+        nav {
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          max-width: calc(
+            100vw
+          ); /* Ensure the header and nav do not exceed the viewport width */
+        }
 
-  section {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    max-width: calc(100vw); /* Ensure the section does not exceed the viewport width */
-  }
+        section {
+          width: 100%;
+          padding: 0;
+          margin: 0;
+          max-width: calc(
+            100vw
+          ); /* Ensure the section does not exceed the viewport width */
+        }
 
-  @media (max-width: 1024px) {
-    .container, .carousel-container, .carousel-item, header, nav, section {
-      max-width: 100vw; /* Reset to 100vw for smaller screens where scrollbar width is less of an issue */
-    }
-  }
-`}</style>
-
-
+        @media (max-width: 1024px) {
+          .container,
+          .carousel-container,
+          .carousel-item,
+          header,
+          nav,
+          section {
+            max-width: 100vw; /* Reset to 100vw for smaller screens where scrollbar width is less of an issue */
+          }
+        }
+      `}</style>
 
       <div className="flex flex-col md:flex-row items-center mb-8 py-2">
         <div className="circle-container relative w-56 h-56 md:w-72 md:h-72 lg:w-96 lg:h-96 overflow-hidden rounded-full shadow-lg mb-4 md:mb-0">
@@ -553,15 +565,15 @@ const Home = () => {
             <div className="flex-grow border-t-2 border-gray-700 wavy-border"></div>
             <span className="mx-4 text-2xl text-blue-500">★</span>
             <h1 className="text-4xl font-bold font-cinzel mx-4">
-             AMXSOL Infinite Possibilities
+              AMXSOL <FaInfinity className="text-red-800" /> Possibilities
             </h1>
             <span className="mx-4 text-2xl text-green-500">★</span>
             <div className="flex-grow border-t-2 border-gray-700 wavy-border"></div>
           </div>
 
           <p className="mt-4 text-center md:text-left">
-            Handling tough SAP Work tasks. Giving Futures to your Business not
-            Just, Let's Grow Together Giving wings to financial dreams.
+            Handling tough Work tasks. Giving Futures to your Business not Just,
+            Let's Grow Together Giving wings to financial dreams.
           </p>
 
           <div className="flex items-center justify-center md:justify-start w-full my-8">
@@ -573,7 +585,8 @@ const Home = () => {
             >
               About Us
             </h2>
-            <span className="mx-4 text-2xl text-red-500">◆</span>
+
+            <span className="mx-4 text-2xl text-red-500">◆ </span>
             <div className="flex-grow border-t-2 border-gray-700 diamond-border"></div>
           </div>
 
@@ -1361,21 +1374,19 @@ const Home = () => {
       <section className="py-4 bg-gray-100" style={{ marginTop: "-20px" }}>
         <div className="container mx-auto">
           <div className="text-center mb-8">
-            {/* <div className="flex items-center justify-center w-full my-4">
+            <div className="flex items-center justify-center w-full my-4">
               <div className="flex items-center">
                 <div className="border-b-2 border-blue-600 w-12"></div>
                 <span className="mx-2 text-blue-600">&#x1F4CD;</span>{" "}
-                
               </div>
               <h2 className="text-4xl font-bold font-cinzel mx-4 text-gray-800">
                 Office Locations
               </h2>
               <div className="flex items-center">
                 <span className="mx-2 text-green-600">&#x1F4CD;</span>{" "}
-                
                 <div className="border-b-2 border-green-600 w-12"></div>
               </div>
-            </div> */}
+            </div>
             {/* <p className="text-lg text-gray-600">
               Over 10 Employees working in more than 8 States in India and 20
               Employees working in American Branch.
@@ -1387,17 +1398,15 @@ const Home = () => {
               <h3 className="text-xl font-bold mb-4">American Corporate HQ</h3>
               <p className="mb-4">
                 AMXSOL LLC, 1000 Northbrook Drive, Suite 100, Trevose, PA 19053
-                USA Tel: +1 (215) 268-6168 Email: info@amxsol.com
+                USA <br /> Tel: +1 (215) 268-6168 Email: info@amxsol.com
               </p>
             </div>
             {/* Indian Branch Office Section */}
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold mb-4">
-                Hyderabad Branch Office
-              </h3>
+              <h3 className="text-xl font-bold mb-4">Global Branch Office</h3>
               <p className="mb-4">
                 #3-88/3/A, Sree Krishna Arcade, Nizampet, Hyderabad | 500090 TG,
-                INDIA Tel: +91-4035759443 | +91-8179382764 Email:
+                INDIA <br /> Tel: +91-4035759443 | +91-8179382764 Email:
                 info@amxsol.com
               </p>
             </div>

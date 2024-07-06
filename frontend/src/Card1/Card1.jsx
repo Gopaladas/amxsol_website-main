@@ -43,7 +43,7 @@ const Card1 = () => {
         onScroll={handleScroll}
         onTouchMove={handleTouchMove}
       >
-        <div class="e-card  ">
+        <div class="e-card  lg:h-[50vh]">
           <div class="cube-container relative m-auto">
             <div class="cube flex justify-center">
               <div class="face front  flex justify-center">
