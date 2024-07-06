@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .font-serif {
+    font-family: Georgia, "Times New Roman", Times, serif; /* Example of a serif font */
+  }
+
+  .font-sans {
+    font-family: "Arial", "Helvetica", sans-serif; /* Example of a sans-serif font */
+  }
+
+  .animate-pulse {
+    animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-ping {
+    animation: ping 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes ping {
+    0% {
+      transform: scale(0.8);
+      opacity: 0.6;
+    }
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+}
+
+.busback {
+  /* background: linear-gradient(-45deg, #131250 0%, #022450 100%); */
+  background-color: white;
+}

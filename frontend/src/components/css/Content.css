@@ -1,0 +1,37 @@
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: -1;
+    width: 100%;
+    padding: 0 30px;
+    color: #1b1b1b;
+    animation: fadeInContent 2s ease-in-out;
+}
+
+@keyframes fadeInContent {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.content div {
+    font-size: 40px;
+    font-weight: 700;
+    opacity: 0;
+    animation: fadeInText 1s ease-in-out forwards;
+}
+
+.content div:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+.content div:nth-child(2) {
+    animation-delay: 1s;
+}
+
+@keyframes fadeInText {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

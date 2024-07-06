@@ -1,0 +1,79 @@
+.announcement-bar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    padding-left:500px;
+    font-size: 14px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1001; 
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.announcement-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center; 
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 18px;
+    margin-right: 10px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #01bf71;
+}
+
+.contact-info {
+    margin-left: 20px; 
+    display: flex;
+    align-items: center;
+}
+
+.contact-info a {
+    color: #fff;
+    margin-left: 10px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #01bf71;
+}
+
+@media (max-width: 480px) and (max-height: 553px) {
+    .announcement-bar {
+        font-size: 12px;
+        padding: 6px 0;
+    }
+
+    .social-icons a {
+        font-size: 16px;
+        margin-right: 8px;
+    }
+
+    .contact-info {
+        flex-basis: 100%;
+        justify-content: center; 
+        margin-top: 5px; 
+    }
+}

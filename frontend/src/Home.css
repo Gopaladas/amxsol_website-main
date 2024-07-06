@@ -1,0 +1,120 @@
+body{
+  background: transparent;
+}
+
+.carousel-content {
+  background-color: transparent !important; /* Ensure no background color */
+  background: transparent;
+}
+
+@keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .animate-scroll {
+    display: flex;
+    width: calc(100% * 2); /* To allow enough space for scrolling */
+    animation: scroll 30s linear infinite;
+  }
+
+  @keyframes zoomIn {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+  }
+  
+  @keyframes zoomOut {
+    0% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+  
+  .zoom-in {
+    animation: zoomIn 3s forwards;
+  }
+  
+  .zoom-out {
+    animation: zoomOut 2s forwards;
+  }
+  
+  /* In your CSS file */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 2s ease-in-out;
+}
+
+.bg-blue-700:focus {
+  background-color: #2043ddb4; /* Darker orange color */
+  transition: background-color 0.5s ease;
+}
+
+.wavy-border {
+  border-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><path d="M0 5 Q 2.5 0 5 5 T 10 5" fill="none" stroke="black" /></svg>') 27;
+  border-image-slice: 1;
+}
+
+
+.diamond-border {
+  border-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><path d="M5 0 L10 5 L5 10 L0 5 Z" fill="none" stroke="black" /></svg>') 27;
+  border-image-slice: 1;
+}
+
+.gold-dotted-border {
+  border-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="2" fill="gold" /></svg>') 27;
+  border-image-slice: 1;
+}
+
+
+.glory-border {
+  box-shadow: 0 0 10px 2px gold;
+  height: 2px;
+}
+.border-gold {
+  border-color: darkgoldenrod;
+}
+
+
+@media (max-width: 768px) {
+  .carousel-content {
+    top: 50%; 
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 2rem; 
+  }
+}
+
+
+
+.text-violet-500 {
+  color: #8a2be2; /* Adjust the hex code to your preferred violet color */
+}
+
+
+.custom-border {
+  border: 2px solid transparent;
+  /* border-image: linear-gradient(to right, red, yellow) 1; */
+  border-radius: 15px; /* Adjust as needed for arcs */
+}
+
+
+
+
+
+
+
+
+
+  

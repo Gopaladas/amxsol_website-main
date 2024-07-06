@@ -1,0 +1,10 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 115vh;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .content{
+    flex:1;
+  }

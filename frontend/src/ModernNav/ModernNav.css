@@ -1,0 +1,166 @@
+nav a:active,
+nav a.active {
+  color: var(--secondaryColor);
+}
+
+/* Modify dropdown styles to change text color without background color */
+.dropdown-content a:hover {
+  color: var(--secondaryColor);
+  /* background-color: transparent; Ensure background color remains transparent */
+}
+
+/* Ensure this is included in your existing CSS */
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Titillium Web", sans-serif;
+}
+
+:root {
+  --mainColor: #29335c;
+  --mainColorLight: #5767aa;
+  --secondaryColor: #db2b39;
+  --textColor: #eee;
+}
+
+header {
+  position: relative;
+  top: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  padding: 0 2rem;
+  background-color: var(--mainColor);
+
+  color: var(--textColor);
+  z-index: 1;
+}
+
+nav a {
+  margin: 0 1rem;
+  color: var(--textColor);
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--secondaryColor);
+}
+
+header .nav-btn {
+  padding: 5px;
+  cursor: pointer;
+  /* background: transparent; */
+  border: none;
+  outline: none;
+  color: var(--textColor);
+  visibility: hidden;
+  opacity: 1;
+  font-size: 1.8rem;
+}
+
+header div,
+nav {
+  display: flex;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1024px) {
+  header .nav-btn {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  header nav {
+    position: fixed;
+    top: -100vh;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    /* background-color: var(--mainColor); */
+    background-color: black;
+    transition: 1s;
+    z-index: 2000;
+  }
+
+  header .responsive_nav {
+    transform: translateY(100vh);
+  }
+
+  nav .nav-close-btn {
+    position: absolute;
+    top: 5rem;
+    right: 2rem;
+  }
+
+  nav a {
+    font-size: 1.5rem;
+  }
+}
+
+/* Dropdown styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  z-index: 20;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  /* background-color: transparent; Ensure background color remains transparent */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  min-width: 160px;
+  text-align: left;
+  background-color: white;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  color: var(--secondaryColor);
+  /* background-color: transparent; Ensure background color remains transparent */
+}
+
+.shadow-box {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  /* position: absolute; */
+}
+
+.dropdown:hover .dropbtn {
+  color: var(--secondaryColor); /* Ensure text color changes */
+}
+
+/* Ensure responsive styles work */
+@media only screen and (max-width: 1024px) {
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    /* background-color: transparent; */
+  }
+
+  .dropdown-content a {
+    padding: 10px 0;
+  }
+}

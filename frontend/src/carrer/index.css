@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+.bg-image {
+  position: relative;
+}
+
+.text-vibrant {
+  color: #2a3d54; /* Vibrant color example */
+}
+
+/* Adjust font size on hover */
+.bg-image:hover .text-5xl {
+  font-size: 6rem; /* Larger font size on hover */
+}
