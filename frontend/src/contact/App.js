@@ -91,32 +91,58 @@ function ContactApp() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      message: "",
-      discussionTopics: [],
-      contactMethods: [],
-      preferredDate: "",
-      preferredTime: "",
-      declaration: false,
-    });
-    setFieldFocused({
-      firstName: false,
-      lastName: false,
-      email: false,
-      phone: false,
-      message: false,
-      discussionTopics: false,
-      contactMethods: false,
-      preferredDate: false,
-      preferredTime: false,
-    });
+
+    try {
+      const response = await fetch('http://localhost:5000/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          formData,
+          completed: false
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      // Assuming your backend returns some JSON response
+      const responseData = await response.json();
+      console.log('Form submitted successfully:', responseData);
+
+      // Reset the form after successful submission
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        message: '',
+        discussionTopics: [],
+        contactMethods: [],
+        preferredDate: '',
+        preferredTime: '',
+        declaration: false,
+      });
+
+      setFieldFocused({
+        firstName: false,
+        lastName: false,
+        email: false,
+        phone: false,
+        message: false,
+        discussionTopics: false,
+        contactMethods: false,
+        preferredDate: false,
+        preferredTime: false,
+      });
+
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
   };
 
   return (
@@ -211,11 +237,10 @@ function ContactApp() {
                     onChange={handleChange}
                     onFocus={() => handleFocus("firstName")}
                     onBlur={() => handleBlur("firstName")}
-                    className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none ${
-                      fieldFocused.firstName || formData.firstName
+                    className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none ${fieldFocused.firstName || formData.firstName
                         ? "border-blue-600 ring ring-blue-600 ring-opacity-50 bg-blue-100 text-blue-900"
                         : "border-gray-300"
-                    }`}
+                      }`}
                     required
                   />
                 </div>
@@ -237,11 +262,10 @@ function ContactApp() {
                     onChange={handleChange}
                     onFocus={() => handleFocus("lastName")}
                     onBlur={() => handleBlur("lastName")}
-                    className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none ${
-                      fieldFocused.lastName || formData.lastName
+                    className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none ${fieldFocused.lastName || formData.lastName
                         ? "border-pink-600 ring ring-pink-600 ring-opacity-50 bg-pink-100 text-pink-900"
                         : "border-gray-300"
-                    }`}
+                      }`}
                     required
                   />
                 </div>
@@ -263,11 +287,10 @@ function ContactApp() {
                     onChange={handleChange}
                     onFocus={() => handleFocus("email")}
                     onBlur={() => handleBlur("email")}
-                    className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none ${
-                      fieldFocused.email || formData.email
+                    className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none ${fieldFocused.email || formData.email
                         ? "border-purple-600 ring ring-purple-600 ring-opacity-50 bg-purple-100 text-purple-900"
                         : "border-gray-300"
-                    }`}
+                      }`}
                     required
                   />
                 </div>
@@ -289,11 +312,10 @@ function ContactApp() {
                     onChange={handleChange}
                     onFocus={() => handleFocus("phone")}
                     onBlur={() => handleBlur("phone")}
-                    className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none ${
-                      fieldFocused.phone || formData.phone
+                    className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none ${fieldFocused.phone || formData.phone
                         ? "border-green-600 ring ring-green-600 ring-opacity-50 bg-green-100 text-green-900"
                         : "border-gray-300"
-                    }`}
+                      }`}
                     required
                   />
                 </div>
@@ -313,12 +335,11 @@ function ContactApp() {
                         value={option}
                         checked={formData.discussionTopics.includes(option)}
                         onChange={handleCheckboxChange}
-                        className={`focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded ${
-                          fieldFocused.discussionTopics ||
-                          formData.discussionTopics.includes(option)
+                        className={`focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded ${fieldFocused.discussionTopics ||
+                            formData.discussionTopics.includes(option)
                             ? "bg-indigo-100 text-indigo-900"
                             : ""
-                        }`}
+                          }`}
                       />
                       <label
                         htmlFor={`discussion-${index}`}
@@ -344,12 +365,11 @@ function ContactApp() {
                         value={option}
                         checked={formData.contactMethods.includes(option)}
                         onChange={handleCheckboxChange}
-                        className={`focus:ring-white h-4 w-4 text-white border-white rounded ${
-                          fieldFocused.contactMethods ||
-                          formData.contactMethods.includes(option)
+                        className={`focus:ring-white h-4 w-4 text-white border-white rounded ${fieldFocused.contactMethods ||
+                            formData.contactMethods.includes(option)
                             ? "bg-white text-white"
                             : ""
-                        }`}
+                          }`}
                       />
                       <label
                         htmlFor={`contact-${index}`}
@@ -377,11 +397,10 @@ function ContactApp() {
                     onChange={handleChange}
                     onFocus={() => handleFocus("preferredDate")}
                     onBlur={() => handleBlur("preferredDate")}
-                    className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none ${
-                      fieldFocused.preferredDate || formData.preferredDate
+                    className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none ${fieldFocused.preferredDate || formData.preferredDate
                         ? "border-red-600 ring ring-red-600 ring-opacity-50 bg-red-100 text-red-900"
                         : "border-gray-300"
-                    }`}
+                      }`}
                     required
                   />
                 </div>
@@ -402,11 +421,10 @@ function ContactApp() {
                     onChange={handleChange}
                     onFocus={() => handleFocus("preferredTime")}
                     onBlur={() => handleBlur("preferredTime")}
-                    className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none ${
-                      fieldFocused.preferredTime || formData.preferredTime
+                    className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none ${fieldFocused.preferredTime || formData.preferredTime
                         ? "border-teal-600 ring ring-teal-600 ring-opacity-50 bg-teal-100 text-teal-900"
                         : "border-gray-300"
-                    }`}
+                      }`}
                     required
                   />
                 </div>
@@ -429,11 +447,10 @@ function ContactApp() {
                     onChange={handleChange}
                     onFocus={() => handleFocus("message")}
                     onBlur={() => handleBlur("message")}
-                    className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none ${
-                      fieldFocused.message || formData.message
+                    className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none ${fieldFocused.message || formData.message
                         ? "border-yellow-600 ring ring-yellow-600 ring-opacity-50 bg-yellow-100 text-yellow-900"
                         : "border-gray-300"
-                    }`}
+                      }`}
                     required
                   />
                 </div>
