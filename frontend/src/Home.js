@@ -416,15 +416,142 @@ const Home = () => {
   }, [scrollDirection]);
 
   return (
-    <div className="container mx-auto px-4 relative top-[-20px]">
-      <div className="container mx-auto px-4">
-        <div className="carousel-container relative w-full max-w-screen-xl mx-auto overflow-hidden shadow-lg mb-8">
+    // <div className="container mx-auto px-4 relative top-[-20px]">
+    //   <div className="container mx-auto px-4">
+    //     <div className="carousel-container relative w-full max-w-screen-xl mx-auto overflow-hidden shadow-lg mb-8">
+    //       <div
+    //         className="carousel flex transition-transform duration-500"
+    //         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+    //       >
+    //         {images.map((image, index) => (
+    //           <div key={index} className="carousel-item min-w-full relative">
+    //             <img
+    //               src={image.src}
+    //               alt="e4dd Banner"
+    //               className={`w-full h-auto object-cover ${
+    //                 currentIndex === index ? "zoom-in" : "zoom-out"
+    //               }`}
+    //             />
+    //             <div className="carousel-content absolute top-1/2 left-4 transform -translate-y-1/2 md:top-1/3 md:left-8 lg:top-1/3 lg:left-12 text-white p-2 md:p-4 lg:p-6 bg-opacity-50 rounded">
+    //               <h2 className="text-sm md:text-3xl lg:text-5xl font-bold bg-opacity-70 p-0.5 md:p-2 lg:p-3 rounded animate-fade-in">
+    //                 {image.title}
+    //               </h2>
+    //               <p className="text-xs md:text-xl lg:text-2xl mt-0.5 md:mt-2 lg:mt-3">
+    //                 <span className="inline-block bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 bg-opacity-70 text-transparent bg-clip-text p-0.5 md:p-2 lg:p-3 rounded">
+    //                   {image.tagline}
+    //                 </span>
+    //               </p>
+    //               <div className="text-left mt-2 md:mt-4 lg:mt-6">
+    //                 <Link
+    //                   to="/service"
+    //                   className="inline-block py-1 px-2 md:py-2 md:px-6 lg:py-2 lg:px-6 bg-orange-500 text-white text-sm md:text-base lg:text-lg font-semibold rounded-lg transition-colors duration-700"
+    //                   style={{
+    //                     backgroundImage:
+    //                       "linear-gradient(45deg, #FFA500, #FF4500)", // initial gradient
+    //                     transition:
+    //                       "background 0.5s ease-in-out, color 0.5s ease-in-out",
+    //                   }}
+    //                   onMouseEnter={(e) => {
+    //                     e.currentTarget.style.backgroundImage =
+    //                       "linear-gradient(45deg, #1E90FF, #32CD32, #FF69B4)"; // hover gradient
+    //                     e.currentTarget.style.color = "black"; // hover text color
+    //                   }}
+    //                   onMouseLeave={(e) => {
+    //                     e.currentTarget.style.backgroundImage =
+    //                       "linear-gradient(45deg, #FFA500, #FF4500)"; // initial gradient
+    //                     e.currentTarget.style.color = "white"; // initial text color
+    //                   }}
+    //                 >
+    //                   Services & Plan
+    //                 </Link>
+    //               </div>
+    //             </div>
+    //           </div>
+    //         ))}
+    //       </div>
+    //     </div>
+    //   </div>
+
+    //   <style jsx global>{`
+    //     html,
+    //     body {
+    //       margin: 0;
+    //       padding: 0;
+    //       width: 100%;
+    //       height: 100%;
+    //       overflow-x: hidden; /* Prevent horizontal scrolling */
+    //       box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    //     }
+
+    //     *,
+    //     *::before,
+    //     *::after {
+    //       box-sizing: inherit; /* Inherit the box-sizing property for all elements */
+    //     }
+
+    //     .container {
+    //       padding: 0;
+    //       margin: 0;
+    //       width: 100%;
+    //       max-width: calc(100vw); /* Adjust to include scrollbar width */
+    //       overflow-x: hidden; /* Prevent horizontal scrolling within the container */
+    //     }
+
+    //     .carousel-container {
+    //       width: 100%;
+    //       margin: 0;
+    //       overflow-x: hidden; /* Prevent horizontal scrolling within the carousel container */
+    //     }
+
+    //     .carousel-item {
+    //       width: 100%;
+    //     }
+
+    //     img {
+    //       width: 100%;
+    //       height: auto;
+    //     }
+
+    //     header,
+    //     nav {
+    //       width: 100%;
+    //       margin: 0;
+    //       padding: 0;
+    //       max-width: calc(
+    //         100vw
+    //       ); /* Ensure the header and nav do not exceed the viewport width */
+    //     }
+
+    //     section {
+    //       width: 100%;
+    //       padding: 0;
+    //       margin: 0;
+    //       max-width: calc(
+    //         100vw
+    //       ); /* Ensure the section does not exceed the viewport width */
+    //     }
+
+    //     @media (max-width: 1024px) {
+    //       .container,
+    //       .carousel-container,
+    //       .carousel-item,
+    //       header,
+    //       nav,
+    //       section {
+    //         max-width: 100vw; /* Reset to 100vw for smaller screens where scrollbar width is less of an issue */
+    //       }
+    //     }
+    //   `}</style>
+
+    <div className="w-full mx-auto relative">
+      <div className="relative">
+        <div className="w-full overflow-hidden shadow-lg mb-8 px-0">
           <div
-            className="carousel flex transition-transform duration-500"
-            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            className="flex transition-transform duration-500"
+            style={{ transform: `translateX(-${currentIndex * 100}%) ` }}
           >
             {images.map((image, index) => (
-              <div key={index} className="carousel-item min-w-full relative">
+              <div key={index} className="min-w-full relative">
                 <img
                   src={image.src}
                   alt="e4dd Banner"
@@ -432,7 +559,7 @@ const Home = () => {
                     currentIndex === index ? "zoom-in" : "zoom-out"
                   }`}
                 />
-                <div className="carousel-content absolute top-1/2 left-4 transform -translate-y-1/2 md:top-1/3 md:left-8 lg:top-1/3 lg:left-12 text-white p-2 md:p-4 lg:p-6 bg-opacity-50 rounded">
+                <div className="absolute top-1/2 left-4 transform -translate-y-1/2 md:top-1/3 md:left-8 lg:top-1/3 lg:left-12 text-white p-2 md:p-4 lg:p-6 bg-opacity-50 rounded">
                   <h2 className="text-sm md:text-3xl lg:text-5xl font-bold bg-opacity-70 p-0.5 md:p-2 lg:p-3 rounded animate-fade-in">
                     {image.title}
                   </h2>
@@ -470,78 +597,66 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </div>
 
-      <style jsx global>{`
-        html,
-        body {
-          margin: 0;
-          padding: 0;
-          width: 100%;
-          height: 100%;
-          overflow-x: hidden; /* Prevent horizontal scrolling */
-          box-sizing: border-box; /* Include padding and border in the element's total width and height */
-        }
-
-        *,
-        *::before,
-        *::after {
-          box-sizing: inherit; /* Inherit the box-sizing property for all elements */
-        }
-
-        .container {
-          padding: 0;
-          margin: 0;
-          width: 100%;
-          max-width: calc(100vw); /* Adjust to include scrollbar width */
-          overflow-x: hidden; /* Prevent horizontal scrolling within the container */
-        }
-
-        .carousel-container {
-          width: 100%;
-          margin: 0;
-          overflow-x: hidden; /* Prevent horizontal scrolling within the carousel container */
-        }
-
-        .carousel-item {
-          width: 100%;
-        }
-
-        img {
-          width: 100%;
-          height: auto;
-        }
-
-        header,
-        nav {
-          width: 100%;
-          margin: 0;
-          padding: 0;
-          max-width: calc(
-            100vw
-          ); /* Ensure the header and nav do not exceed the viewport width */
-        }
-
-        section {
-          width: 100%;
-          padding: 0;
-          margin: 0;
-          max-width: calc(
-            100vw
-          ); /* Ensure the section does not exceed the viewport width */
-        }
-
-        @media (max-width: 1024px) {
-          .container,
-          .carousel-container,
-          .carousel-item,
-          header,
-          nav,
-          section {
-            max-width: 100vw; /* Reset to 100vw for smaller screens where scrollbar width is less of an issue */
+        <style jsx global>{`
+          html,
+          body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
           }
-        }
-      `}</style>
+
+          *,
+          *::before,
+          *::after {
+            box-sizing: border-box;
+          }
+
+          .carousel-container {
+            width: 100%;
+            margin: 0;
+            overflow-x: hidden;
+            padding: 0;
+          }
+
+          .carousel-item {
+            width: 100%;
+          }
+
+          img {
+            width: 100%;
+            height: auto;
+          }
+
+          header,
+          nav {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            max-width: 100vw;
+          }
+
+          section {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            max-width: 100vw;
+          }
+
+          @media (max-width: 1024px) {
+            .container,
+            .carousel-container,
+            .carousel-item,
+            header,
+            nav,
+            section {
+              max-width: 100vw;
+            }
+          }
+        `}</style>
+      </div>
 
       <div className="flex flex-col md:flex-row items-center mb-8 py-2">
         <div className="circle-container relative w-56 h-56 md:w-72 md:h-72 lg:w-96 lg:h-96 overflow-hidden rounded-full shadow-lg mb-4 md:mb-0">
@@ -1403,7 +1518,7 @@ const Home = () => {
             </div>
             {/* Indian Branch Office Section */}
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold mb-4">Global Branch Office</h3>
+              <h3 className="text-xl font-bold mb-4">Global Indian Office</h3>
               <p className="mb-4">
                 #3-88/3/A, Sree Krishna Arcade, Nizampet, Hyderabad | 500090 TG,
                 INDIA <br /> Tel: +91-4035759443 | +91-8179382764 Email:

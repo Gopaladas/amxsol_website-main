@@ -1,17 +1,22 @@
 import React, { useState, useEffect } from "react";
 import logo from "./logonew.jpeg";
 import { Link } from "react-router-dom";
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+import { FaInfinity } from "react-icons/fa";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [activeSubDropdown, setActiveSubDropdown] = useState(null);
   const [showSearch, setShowSearch] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isScroll, setIsScroll] = useState(window.innerHeight < 150);
 
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
+      setIsScroll(window.innerHeight < 150);
     };
 
     window.addEventListener("resize", handleResize);
@@ -22,10 +27,16 @@ const Navbar = () => {
 
   const toggleDropdown = (menu) => {
     setActiveDropdown((prev) => (prev === menu ? null : menu));
+    setActiveSubDropdown(null);
+  };
+
+  const toggleSubDropdown = (menu) => {
+    setActiveSubDropdown((prev) => (prev === menu ? null : menu));
   };
 
   const closeDropdown = () => {
     setActiveDropdown(null);
+    setActiveSubDropdown(null);
     setIsOpen(false);
   };
 
@@ -41,7 +52,7 @@ const Navbar = () => {
   return (
     <div>
       {/* Main Navbar */}
-      <nav className="bg-black p-4 relative z-10">
+      <nav className={`bg-black p-4 relative z-10`}>
         <div className="container mx-auto flex flex-col">
           <div className="flex justify-between items-center">
             <div className="relative flex items-center">
@@ -49,43 +60,15 @@ const Navbar = () => {
                 <img
                   src={logo} // Path to your logo image
                   alt="Logo"
-                  className="h-8 w-auto transition-transform duration-300 ease-in-out rounded-md"
+                  className={` ${
+                    isScroll > 150
+                      ? "bg-transparent h-8 w-auto transition-transform duration-300 ease-in-out rounded-md"
+                      : "h-8 w-auto transition-transform duration-300 ease-in-out rounded-md"
+                  }`}
                 />
               </Link>
             </div>
             <div className="hidden md:flex space-x-8 justify-center flex-1">
-              {/* <Link
-                to="/"
-                onClick={closeDropdown}
-                className="text-gray-300 hover:text-white px-3 py-2 hover:bg-blue-300"
-              >
-                Home
-              </Link> */}
-              <div className="relative">
-                <button
-                  onClick={() => toggleDropdown("whoWeAre")}
-                  className={`text-gray-300 hover:text-white px-3 py-2 flex items-center ${
-                    activeDropdown === "whoWeAre"
-                      ? "bg-blue-500"
-                      : "hover:bg-blue-300"
-                  }`}
-                >
-                  Who we are
-                  <svg
-                    className="ml-1 h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-              </div>
               <div className="relative">
                 <button
                   onClick={() => toggleDropdown("whatWeDo")}
@@ -95,36 +78,56 @@ const Navbar = () => {
                       : "hover:bg-blue-300"
                   }`}
                 >
+                  {activeDropdown === "whatWeDo" ? (
+                    <FiChevronUp />
+                  ) : (
+                    <FiChevronDown />
+                  )}
                   What we do
-                  <svg
-                    className="ml-1 h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
+                  <FaInfinity className="relative top-[1px] mx-1" />
                 </button>
               </div>
-
+              <div className="relative">
+                <button
+                  onClick={() => toggleDropdown("whoWeAre")}
+                  className={`text-gray-300 hover:text-white px-3 py-2 flex items-center ${
+                    activeDropdown === "whoWeAre"
+                      ? "bg-blue-500"
+                      : "hover:bg-blue-300"
+                  }`}
+                >
+                  {activeDropdown === "whoWeAre" ? (
+                    <FiChevronUp />
+                  ) : (
+                    <FiChevronDown />
+                  )}
+                  Who we are
+                  <FaInfinity className="relative top-[1px] mx-1" />
+                </button>
+              </div>
               <Link
                 to="/carrer"
                 onClick={closeDropdown}
-                className="text-gray-300 hover:text-white px-3 py-2 hover:bg-blue-300"
+                className="text-gray-300 hover:text-white px-3 py-2 hover:bg-blue-300 flex"
               >
-                Build a career with us
+                Career
+                <FaInfinity className="relative top-[1px] m-auto " />
+              </Link>
+              <Link
+                to="/"
+                onClick={closeDropdown}
+                className="text-gray-300 hover:text-white px-3 py-2 hover:bg-blue-300 flex"
+              >
+                Newsroom
+                <FaInfinity className="relative top-[1px] m-auto " />
               </Link>
               <Link
                 to="/contact"
                 onClick={closeDropdown}
-                className="text-gray-300 hover:text-white px-3 py-2 hover:bg-blue-300"
+                className="text-gray-300 hover:text-white px-3 py-2 hover:bg-blue-300 flex"
               >
                 Contact Us
+                <FaInfinity className="relative top-[1px] m-auto" />
               </Link>
             </div>
             <div className="hidden md:flex items-center space-x-4">
@@ -190,86 +193,7 @@ const Navbar = () => {
         {/* Secondary Navbar for 'Who we are' */}
         {!isMobile && activeDropdown === "whoWeAre" && (
           <div className="absolute bg-gray-800 mt-1 inset-x-0 top-full z-20">
-            {/* <div className="container mx-auto flex space-x-4">
-              <Link
-                onClick={closeDropdown}
-                className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900 flex items-center"
-              >
-                Our Services
-                <svg
-                  className="ml-1 h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </Link>
-              <div className="flex-1 flex justify-center">
-                <Link
-                  to="/services"
-                  onClick={closeDropdown}
-                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
-                >
-                  Business Solution
-                </Link>
-                <Link
-                  to="/tech"
-                  onClick={closeDropdown}
-                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
-                >
-                  Technology Solution
-                </Link>
-                <Link
-                  to="/business"
-                  onClick={closeDropdown}
-                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
-                >
-                  Business Impact
-                </Link>
-
-                <Link
-                  to="/industries"
-                  onClick={closeDropdown}
-                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
-                >
-                  Industries
-                </Link>
-                <Link
-                  to="talent"
-                  onClick={closeDropdown}
-                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
-                >
-                  Talent Services
-                </Link>
-              </div>
-            </div> */}
-
             <div className="container mx-auto flex space-x-4">
-              <Link
-                onClick={closeDropdown}
-                className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900 flex items-center"
-              >
-                Capabilities
-                <svg
-                  className="ml-1 h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </Link>
               <div className="flex-1 flex justify-center">
                 <Link
                   to="/aboutus"
@@ -277,6 +201,20 @@ const Navbar = () => {
                   className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
                 >
                   About Us
+                </Link>
+                <Link
+                  to="/"
+                  onClick={closeDropdown}
+                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
+                >
+                  People
+                </Link>
+                <Link
+                  to="/carrer"
+                  onClick={closeDropdown}
+                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
+                >
+                  Build a career with us
                 </Link>
                 <Link
                   to="/academy"
@@ -299,145 +237,236 @@ const Navbar = () => {
         {/* Secondary Navbar for 'What we do' */}
         {!isMobile && activeDropdown === "whatWeDo" && (
           <div className="absolute bg-gray-800 mt-1 inset-x-0 top-full z-20">
-            {/* <div className="container mx-auto flex space-x-4">
-              <Link
-                onClick={closeDropdown}
-                className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900 flex items-center"
-              >
-                Capabilities
-                <svg
-                  className="ml-1 h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </Link>
-              <div className="flex-1 flex justify-center">
-                <Link
-                  to="/aboutus"
-                  onClick={closeDropdown}
-                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
-                >
-                  About Us
-                </Link>
-                <Link
-                  to="/academy"
-                  onClick={closeDropdown}
-                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
-                >
-                  Amxsol Academy
-                </Link>
-                <Link
-                  to="/foundation"
-                  onClick={closeDropdown}
-                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
-                >
-                  Amxsol Foundation
-                </Link>
-              </div>
-            </div> */}
-
             <div className="container mx-auto flex space-x-4">
-              <Link
-                onClick={closeDropdown}
-                className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900 flex items-center"
-              >
-                Our Services
-                <svg
-                  className="ml-1 h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+              <div className="relative">
+                <button
+                  onClick={() => toggleSubDropdown("capabilities")}
+                  className={`text-gray-300 hover:text-white px-3 py-2 flex items-center ${
+                    activeSubDropdown === "capabilities"
+                      ? "bg-blue-500"
+                      : "hover:bg-green-300"
+                  }`}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </Link>
-              <div className="flex-1 flex justify-center">
-                <Link
-                  to="/services"
-                  onClick={closeDropdown}
-                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
+                  {activeSubDropdown === "capabilities" ? (
+                    <FiChevronUp />
+                  ) : (
+                    <FiChevronDown />
+                  )}
+                  Capabilities
+                  <FaInfinity className="relative top-[1px] mx-1" />
+                </button>
+              </div>
+              <div className="relative">
+                <button
+                  onClick={() => toggleSubDropdown("industries")}
+                  className={`text-gray-300 hover:text-white px-3 py-2 flex items-center ${
+                    activeSubDropdown === "industries"
+                      ? "bg-blue-500"
+                      : "hover:bg-green-300"
+                  }`}
                 >
-                  Business Solution
-                </Link>
-                <Link
-                  to="/tech"
-                  onClick={closeDropdown}
-                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
-                >
-                  Technology Solution
-                </Link>
-                <Link
-                  to="/business"
-                  onClick={closeDropdown}
-                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
-                >
-                  Business Impact
-                </Link>
-
-                <Link
-                  to="/industries"
-                  onClick={closeDropdown}
-                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
-                >
+                  {activeSubDropdown === "industries" ? (
+                    <FiChevronUp />
+                  ) : (
+                    <FiChevronDown />
+                  )}
                   Industries
-                </Link>
-                <Link
-                  to="talent"
-                  onClick={closeDropdown}
-                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
-                >
-                  Talent Services
-                </Link>
+                  <FaInfinity className="relative top-[1px] mx-1" />
+                </button>
               </div>
             </div>
           </div>
         )}
       </div>
 
+      {!isMobile && activeSubDropdown === "capabilities" && (
+        <div className="absolute top-[115px] bg-gray-800 mt-1 inset-x-0 top-full z-40">
+          <div className="container mx-auto flex space-x-4">
+            <div className="flex-1 flex justify-center">
+              <Link
+                to="/services"
+                onClick={closeDropdown}
+                className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
+              >
+                Business Solution
+              </Link>
+              <Link
+                to="/tech"
+                onClick={closeDropdown}
+                className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
+              >
+                Technology Solution
+              </Link>
+              <Link
+                to="/business"
+                onClick={closeDropdown}
+                className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
+              >
+                Business Impact
+              </Link>
+
+              <Link
+                to="talent"
+                onClick={closeDropdown}
+                className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
+              >
+                Talent Services
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {!isMobile && activeSubDropdown === "industries" && (
+        <div className="absolute top-[115px] bg-gray-800 mt-1 inset-x-0 top-full z-40">
+          <div className="container mx-auto flex space-x-4">
+            <div className="flex-1 flex justify-center">
+              <Link
+                to="/"
+                onClick={closeDropdown}
+                className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
+              >
+                Aerospace
+              </Link>
+              <Link
+                to="/"
+                onClick={closeDropdown}
+                className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
+              >
+                Automotive
+              </Link>
+              <Link
+                to="/business"
+                onClick={closeDropdown}
+                className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
+              >
+                Banking
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Mobile Dropdown Menu */}
       {isMobile && isOpen && (
         <div className="absolute bg-gray-800 w-full p-4 z-20">
-          {/* <Link
-            to="/"
-            onClick={closeDropdown}
-            className="block px-4 py-2 text-gray-300 hover:text-white"
+          <button
+            onClick={() => toggleDropdown("whatWeDo")}
+            className={`block px-4 py-2 text-gray-300 hover:text-white w-full text-left flex items-center gap-2 ${
+              activeDropdown === "whatWeDo" ? "bg-blue-500" : ""
+            }`}
           >
-            Home
-          </Link> */}
+            {activeDropdown === "whatWeDo" ? (
+              <FiChevronUp />
+            ) : (
+              <FiChevronDown />
+            )}
+            What we do
+            <FaInfinity className="relative top-[1px] mx-1" />
+          </button>
+          {activeDropdown === "whatWeDo" && (
+            <>
+              <button
+                onClick={() => toggleSubDropdown("capabilities")}
+                className={`block px-6 py-2 text-gray-300 hover:text-white w-full text-left flex items-center gap-2 ${
+                  activeSubDropdown === "capabilities" ? "bg-green-500" : ""
+                }`}
+              >
+                {activeSubDropdown === "capabilities" ? (
+                  <FiChevronUp />
+                ) : (
+                  <FiChevronDown />
+                )}
+                Capabilities
+                <FaInfinity />
+              </button>
+              {activeSubDropdown === "capabilities" && (
+                <div className="pl-4">
+                  <Link
+                    to="/services"
+                    onClick={closeDropdown}
+                    className="block px-7 py-2 text-gray-300 hover:text-white"
+                  >
+                    Business Solution
+                  </Link>
+                  <Link
+                    to="/tech"
+                    onClick={closeDropdown}
+                    className="block px-7 py-2 text-gray-300 hover:text-white"
+                  >
+                    Technology Solution
+                  </Link>
+                  <Link
+                    to="/business"
+                    onClick={closeDropdown}
+                    className="block px-7 py-2 text-gray-300 hover:text-white"
+                  >
+                    Business Impact
+                  </Link>
+
+                  <Link
+                    to="/talent"
+                    onClick={closeDropdown}
+                    className="block px-7 py-2 text-gray-300 hover:text-white"
+                  >
+                    Talent Services
+                  </Link>
+                </div>
+              )}
+              <button
+                onClick={() => toggleSubDropdown("industries")}
+                className={`block px-6 py-2 text-gray-300 hover:text-white w-full text-left flex items-center gap-2 ${
+                  activeSubDropdown === "industries" ? "bg-green-500" : ""
+                }`}
+              >
+                {activeSubDropdown === "industries" ? (
+                  <FiChevronUp />
+                ) : (
+                  <FiChevronDown />
+                )}
+                Industries
+                <FaInfinity className="relative top-[1px] mx-1" />
+              </button>
+              {activeSubDropdown === "industries" && (
+                <div className="pl-4">
+                  <Link
+                    to="/"
+                    onClick={closeDropdown}
+                    className="block px-7 py-2 text-gray-300 hover:text-white"
+                  >
+                    Aerospace
+                  </Link>
+                  <Link
+                    to="/"
+                    onClick={closeDropdown}
+                    className="block px-7 py-2 text-gray-300 hover:text-white"
+                  >
+                    Automotive
+                  </Link>
+                  <Link
+                    to="/"
+                    onClick={closeDropdown}
+                    className="block px-7 py-2 text-gray-300 hover:text-white"
+                  >
+                    Banking
+                  </Link>
+                </div>
+              )}
+            </>
+          )}
           <button
             onClick={() => toggleDropdown("whoWeAre")}
-            className={`block px-4 py-2 text-gray-300 hover:text-white w-full text-left flex items-center ${
+            className={`block px-4 py-2 text-gray-300 hover:text-white w-full text-left flex items-center gap-2 ${
               activeDropdown === "whoWeAre" ? "bg-blue-500" : ""
             }`}
           >
+            {activeDropdown === "whoWeAre" ? (
+              <FiChevronUp />
+            ) : (
+              <FiChevronDown />
+            )}
             Who we are
-            {/* What we do */}
-            <svg
-              className="ml-1 h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
+            <FaInfinity className="relative top-[1px] mx-1" />
           </button>
           {activeDropdown === "whoWeAre" && (
             <div className="pl-4">
@@ -447,6 +476,20 @@ const Navbar = () => {
                 className="block px-4 py-2 text-gray-300 hover:text-white"
               >
                 About Us
+              </Link>
+              <Link
+                to="/"
+                onClick={closeDropdown}
+                className="block px-4 py-2 text-gray-300 hover:text-white"
+              >
+                People
+              </Link>
+              <Link
+                to="/carrer"
+                onClick={closeDropdown}
+                className="block px-4 py-2 text-gray-300 hover:text-white"
+              >
+                Build a career with us
               </Link>
               <Link
                 to="/academy"
@@ -464,124 +507,32 @@ const Navbar = () => {
               </Link>
             </div>
           )}
-          <button
-            onClick={() => toggleDropdown("whatWeDo")}
-            className={`block px-4 py-2 text-gray-300 hover:text-white w-full text-left flex items-center ${
-              activeDropdown === "whatWeDo" ? "bg-blue-500" : ""
-            }`}
-          >
-            What we do
-            {/* who we are */}
-            <svg
-              className="ml-1 h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          </button>
-          {activeDropdown === "whatWeDo" && (
-            // <div className="pl-4">
-            //   {/* <Link
-            //     onClick={closeDropdown}
-            //     className="block px-4 py-2 text-gray-300 hover:text-white flex items-center"
-            //   >
-            //     Capabilities
-            //     <svg
-            //       className="ml-1 h-4 w-4"
-            //       fill="none"
-            //       viewBox="0 0 24 24"
-            //       stroke="currentColor"
-            //     >
-            //       <path
-            //         strokeLinecap="round"
-            //         strokeLinejoin="round"
-            //         strokeWidth="2"
-            //         d="M9 5l7 7-7 7"
-            //       />
-            //     </svg>
-            //   </Link> */}
-            //   <Link
-            //     to="/aboutus"
-            //     onClick={closeDropdown}
-            //     className="block px-4 py-2 text-gray-300 hover:text-white"
-            //   >
-            //     About Us
-            //   </Link>
-            //   <Link
-            //     to="/academy"
-            //     onClick={closeDropdown}
-            //     className="block px-4 py-2 text-gray-300 hover:text-white"
-            //   >
-            //     Amxsol Academy
-            //   </Link>
-            //   <Link
-            //     to="/foundation"
-            //     onClick={closeDropdown}
-            //     className="block px-4 py-2 text-gray-300 hover:text-white"
-            //   >
-            //     Amxsol Foundation
-            //   </Link>
-            // </div>
-            <div className="pl-4">
-              <Link
-                to="/services"
-                onClick={closeDropdown}
-                className="block px-4 py-2 text-gray-300 hover:text-white"
-              >
-                Business Solution
-              </Link>
-              <Link
-                to="/tech"
-                onClick={closeDropdown}
-                className="block px-4 py-2 text-gray-300 hover:text-white"
-              >
-                Technology Solution
-              </Link>
-              <Link
-                to="/business"
-                onClick={closeDropdown}
-                className="block px-4 py-2 text-gray-300 hover:text-white"
-              >
-                Business Impact
-              </Link>
-              <Link
-                to="/industries"
-                onClick={closeDropdown}
-                className="block px-4 py-2 text-gray-300 hover:text-white"
-              >
-                Industries
-              </Link>
-              <Link
-                to="/talent"
-                onClick={closeDropdown}
-                className="block px-4 py-2 text-gray-300 hover:text-white"
-              >
-                Talent Services
-              </Link>
-            </div>
-          )}
+
           <Link
             to="/carrer"
             onClick={closeDropdown}
-            className="block px-4 py-2 text-gray-300 hover:text-white"
+            className="block px-4 py-2 text-gray-300 hover:text-white flex gap-2"
           >
-            Build a career with us
+            Careers
+            <FaInfinity className="relative top-[1px] " />
+          </Link>
+          <Link
+            to="/"
+            onClick={closeDropdown}
+            className="block px-4 py-2 text-gray-300 hover:text-white flex gap-2"
+          >
+            Newsroom
+            <FaInfinity className="relative top-[1px] " />
           </Link>
           <Link
             to="/contact"
             onClick={closeDropdown}
-            className="block px-4 py-2 text-gray-300 hover:text-white"
+            className="block px-4 py-2 text-gray-300 hover:text-white flex gap-2"
           >
             Contact Us
+            <FaInfinity className="relative top-[1px]" />
           </Link>
-          <button
+          {/* <button
             onClick={toggleSearch}
             className="block px-4 py-2 text-gray-300 hover:text-white"
           >
@@ -603,7 +554,7 @@ const Navbar = () => {
                 Search
               </button>
             </div>
-          )}
+          )} */}
         </div>
       )}
     </div>

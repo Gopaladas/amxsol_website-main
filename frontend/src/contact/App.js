@@ -168,7 +168,7 @@ function ContactApp() {
           />
           {showAddress && selectedImage === 2 && (
             <p className="text-white mt-4 text-center whitespace-pre-line bg-purple-600 p-2 rounded-lg">
-              <b>Hyderabad Branch </b>
+              <b>Global Indian Office </b>
               <br />
               Global R&D Center:
               <br />
