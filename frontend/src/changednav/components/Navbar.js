@@ -280,7 +280,7 @@ const Navbar = () => {
       </div>
 
       {!isMobile && activeSubDropdown === "capabilities" && (
-        <div className="absolute top-[115px] bg-gray-800 mt-1 inset-x-0 top-full z-40">
+        <div className="absolute top-[135px] bg-gray-800 mt-1 inset-x-0 top-full z-40">
           <div className="container mx-auto flex space-x-4">
             <div className="flex-1 flex justify-center">
               <Link
@@ -318,7 +318,7 @@ const Navbar = () => {
       )}
 
       {!isMobile && activeSubDropdown === "industries" && (
-        <div className="absolute top-[115px] bg-gray-800 mt-1 inset-x-0 top-full z-40">
+        <div className="absolute top-[135px] bg-gray-800 mt-1 inset-x-0 top-full z-40">
           <div className="container mx-auto flex space-x-4">
             <div className="flex-1 flex justify-center">
               <Link
