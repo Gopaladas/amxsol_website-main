@@ -28,7 +28,7 @@ const Navbar = () => {
 
   const toggleDropdown = (menu) => {
     setActiveDropdown((prev) => (prev === menu ? null : menu));
-    // setActiveSubDropdown(null);
+    setActiveSubDropdown(null);
     // closeDropdown();
   };
 
@@ -128,7 +128,7 @@ const Navbar = () => {
                 className="text-gray-300 hover:text-white px-3 py-2 hover:bg-blue-300 flex"
               >
                 Contact Us
-                {/* <FaInfinity className="relative top-[1px] m-auto" /> */}
+                <FaInfinity className="relative top-[1px] m-auto" />
               </Link>
             </div>
             <div className="hidden md:flex items-center space-x-4">
@@ -275,82 +275,81 @@ const Navbar = () => {
                   <FaInfinity className="relative top-[1px] mx-1" />
                 </button>
               </div>
+              {!isMobile &&
+                activeDropdown === "whatWeDo" &&
+                activeSubDropdown === "capabilities" && (
+                  <div className="absolute top-[130px] bg-gray-800 mt-1 inset-x-0 top-full z-40">
+                    <div className="container mx-auto flex space-x-4">
+                      <div className="flex-1 flex justify-center">
+                        <Link
+                          to="/services"
+                          onClick={closeDropdown}
+                          className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
+                        >
+                          Business Solution
+                        </Link>
+                        <Link
+                          to="/tech"
+                          onClick={closeDropdown}
+                          className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
+                        >
+                          Technology Solution
+                        </Link>
+                        <Link
+                          to="/business"
+                          onClick={closeDropdown}
+                          className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
+                        >
+                          Business Impact
+                        </Link>
+
+                        <Link
+                          to="talent"
+                          onClick={closeDropdown}
+                          className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
+                        >
+                          Talent Services
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+              {!isMobile &&
+                activeDropdown === "whatWeDo" &&
+                activeSubDropdown === "industries" && (
+                  <div className="absolute top-[130px] bg-gray-800 mt-1 inset-x-0 top-full z-40">
+                    <div className="container mx-auto flex space-x-4">
+                      <div className="flex-1 flex justify-center">
+                        <Link
+                          to="/"
+                          onClick={closeDropdown}
+                          className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
+                        >
+                          Aerospace
+                        </Link>
+                        <Link
+                          to="/"
+                          onClick={closeDropdown}
+                          className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
+                        >
+                          Automotive
+                        </Link>
+                        <Link
+                          to="/business"
+                          onClick={closeDropdown}
+                          className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
+                        >
+                          Banking
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                )}
             </div>
           </div>
         )}
       </div>
-
-      {!isMobile &&
-        activeDropdown === "whatWeDo" &&
-        activeSubDropdown === "capabilities" && (
-          <div className="absolute top-[130px] bg-gray-800 mt-1 inset-x-0 top-full z-40">
-            <div className="container mx-auto flex space-x-4">
-              <div className="flex-1 flex justify-center">
-                <Link
-                  to="/services"
-                  onClick={closeDropdown}
-                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
-                >
-                  Business Solution
-                </Link>
-                <Link
-                  to="/tech"
-                  onClick={closeDropdown}
-                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
-                >
-                  Technology Solution
-                </Link>
-                <Link
-                  to="/business"
-                  onClick={closeDropdown}
-                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
-                >
-                  Business Impact
-                </Link>
-
-                <Link
-                  to="talent"
-                  onClick={closeDropdown}
-                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
-                >
-                  Talent Services
-                </Link>
-              </div>
-            </div>
-          </div>
-        )}
-
-      {!isMobile &&
-        activeDropdown === "whatWeDo" &&
-        activeSubDropdown === "industries" && (
-          <div className="absolute top-[130px] bg-gray-800 mt-1 inset-x-0 top-full z-40">
-            <div className="container mx-auto flex space-x-4">
-              <div className="flex-1 flex justify-center">
-                <Link
-                  to="/"
-                  onClick={closeDropdown}
-                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
-                >
-                  Aerospace
-                </Link>
-                <Link
-                  to="/"
-                  onClick={closeDropdown}
-                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
-                >
-                  Automotive
-                </Link>
-                <Link
-                  to="/business"
-                  onClick={closeDropdown}
-                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
-                >
-                  Banking
-                </Link>
-              </div>
-            </div>
-          </div>
-        )}
 
       {/* Mobile Dropdown Menu */}
       {isMobile && isOpen && (
