@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "./Card1.css";
 import logo from "../assets/logo.jpeg";
+import { Link } from "react-router-dom";
 
 const images = ["/a8.jpg", "/a6.jpg"];
 
@@ -84,12 +85,12 @@ const Card1 = () => {
               <div className="buttonscard  relative top-[5px]">
                 <div className="card1btn">
                   <button className="btncard1 ">
-                    <a href="##">BUSINESS SOLUTIONS</a>
+                    <Link to="/services">BUSINESS SOLUTIONS</Link>
                   </button>
                 </div>
                 <div className="card1btn">
-                  <button className="btncard1 ">
-                    <a href="###">TALENT SOLUTIONS</a>
+                  <button className="btncard1">
+                    <Link to="/talent">TALENT SOLUTIONS</Link>
                   </button>
                 </div>
               </div>

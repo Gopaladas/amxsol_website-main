@@ -115,7 +115,7 @@ const Navbar = () => {
                 <FaInfinity className="relative top-[1px] m-auto " />
               </Link>
               <Link
-                to="/"
+                to="/newsroom"
                 onClick={closeDropdown}
                 className="text-gray-300 hover:text-white px-3 py-2 hover:bg-blue-300 flex"
               >
@@ -322,21 +322,21 @@ const Navbar = () => {
                     <div className="container mx-auto flex space-x-4">
                       <div className="flex-1 flex justify-center">
                         <Link
-                          to="/"
+                          to="/aerospace"
                           onClick={closeDropdown}
                           className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
                         >
                           Aerospace
                         </Link>
                         <Link
-                          to="/"
+                          to="/automotive"
                           onClick={closeDropdown}
                           className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
                         >
                           Automotive
                         </Link>
                         <Link
-                          to="/business"
+                          to="/banking"
                           onClick={closeDropdown}
                           className="px-4 py-2 text-gray-300 hover:text-white hover:bg-blue-900"
                         >
@@ -434,21 +434,21 @@ const Navbar = () => {
               {activeSubDropdown === "industries" && (
                 <div className="pl-4">
                   <Link
-                    to="/"
+                    to="/aerospace"
                     onClick={closeDropdown}
                     className="block px-7 py-2 text-gray-300 hover:text-white"
                   >
                     Aerospace
                   </Link>
                   <Link
-                    to="/"
+                    to="/automotive"
                     onClick={closeDropdown}
                     className="block px-7 py-2 text-gray-300 hover:text-white"
                   >
                     Automotive
                   </Link>
                   <Link
-                    to="/"
+                    to="/banking"
                     onClick={closeDropdown}
                     className="block px-7 py-2 text-gray-300 hover:text-white"
                   >
@@ -521,7 +521,7 @@ const Navbar = () => {
             <FaInfinity className="relative top-[1px] " />
           </Link>
           <Link
-            to="/"
+            to="/newsroom"
             onClick={closeDropdown}
             className="block px-4 py-2 text-gray-300 hover:text-white flex gap-2"
           >

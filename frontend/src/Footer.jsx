@@ -25,6 +25,7 @@ const Footer = () => {
     {
       title: "Company",
       subItems: ["About Us", "Careers", "Contact Us", "NewsRoom", "People"],
+      links: ["/aboutus", "/carrer", "/contact", "/newsroom", "/"],
     },
     {
       title: "Solutions",
@@ -39,6 +40,7 @@ const Footer = () => {
         "AMXSOL Health Care",
         "AMXSOL Reality",
       ],
+      links: ["/services", "/", "/talent", "/", "/", "/", "/", "/", "/"],
     },
     {
       title: "Programs",
@@ -47,6 +49,7 @@ const Footer = () => {
         "AMXSOL Academy",
         "AMXSOL IT Business School",
       ],
+      links: ["/foundation", "/academy", "/"],
     },
     {
       title: "Support",
@@ -58,6 +61,7 @@ const Footer = () => {
         "Legal",
         "PayNow",
       ],
+      links: ["/", "/", "/", "/", "/", "/"],
     },
   ]);
 
@@ -69,7 +73,12 @@ const Footer = () => {
 
       <div className="footer-content grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 m-10 pl-3">
         {content.map((item, index) => (
-          <SubContent key={index} title={item.title} subItems={item.subItems} />
+          <SubContent
+            key={index}
+            title={item.title}
+            subItems={item.subItems}
+            links={item.links}
+          />
         ))}
       </div>
 

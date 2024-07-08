@@ -32,6 +32,11 @@ import ContactApp from "./contact/App";
 import IndustrySection from "./industries/Industries";
 import ServicePage12 from "./Academy_codes/Academy";
 import FoundationApp from "./foundation/App";
+import Aerospace from "./Amxsol_Industries/Industries/Aerospace";
+import Automotive from "./Amxsol_Industries/Industries/Automotive";
+import Banking from "./Amxsol_Industries/Industries/Banking";
+import Newsroom from "./Amxsol_Industries/Newsroom/Newsroom";
+// import Aerospace from "./Amxsol_Industries/Industries/Aerospace/Aerospace";
 
 const AppRoutes = () => {
   return (
@@ -50,6 +55,11 @@ const AppRoutes = () => {
         <Route path="/industries" element={<IndustrySection />} />
         <Route path="/academy" element={<ServicePage12 />} />
         <Route path="/foundation" element={<FoundationApp />} />
+        {/* <Route path="/aerospace" element={<Aerospace/>} /> */}
+        <Route path="/aerospace" element={<Aerospace />} />
+        <Route path="/automotive" element={<Automotive />} />
+        <Route path="/banking" element={<Banking />} />
+        <Route path="/newsroom" element={<Newsroom />} />
       </Routes>
       <Footer />
     </Router>

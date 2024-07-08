@@ -1,0 +1,230 @@
+.automotive-unique-container {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+  top: -20px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(#f2fcfe, #f2fcfe, #f2fcfe, #95e6f6);
+}
+
+.automotive-unique-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.automotive-unique-carousel-inner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 500px; /* Adjust height as needed */
+}
+
+.automotive-unique-carousel-item {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.automotive-unique-carousel-item.active {
+  opacity: 1;
+}
+
+.automotive-unique-carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.automotive-unique-carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* background: rgba(0, 0, 0, 0.3); */
+  padding: 20px;
+  border-radius: 10px;
+  color: #fff;
+  text-align: center;
+  width: 60%;
+  cursor: pointer;
+}
+
+.automotive-unique-carousel-caption h3 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  text-shadow: 2px 2px #333;
+  color: cyan;
+}
+.automotive-unique-carousel-caption p {
+  font-size: 1.8rem;
+  text-shadow: 1px 1px #333;
+  font-weight: 600;
+}
+
+.automotive-unique-carousel-nav {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.automotive-unique-carousel-nav label {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.automotive-unique-container input[type="radio"] {
+  display: none;
+}
+
+#slide1:checked ~ .automotive-unique-carousel-inner #item1,
+#slide2:checked ~ .automotive-unique-carousel-inner #item2,
+#slide3:checked ~ .automotive-unique-carousel-inner #item3,
+#slide4:checked ~ .automotive-unique-carousel-inner #item4 {
+  opacity: 1;
+  position: relative;
+}
+
+#slide1:checked ~ .automotive-unique-carousel-nav label[for="slide1"],
+#slide2:checked ~ .automotive-unique-carousel-nav label[for="slide2"],
+#slide3:checked ~ .automotive-unique-carousel-nav label[for="slide3"],
+#slide4:checked ~ .automotive-unique-carousel-nav label[for="slide4"] {
+  background: #333;
+}
+
+@media (max-width: 720px) {
+  .automotive-unique-carousel-caption {
+    width: 80%;
+  }
+
+  .automotive-unique-carousel-inner {
+    height: 400px;
+  }
+
+  .automotive-unique-carousel-caption h3 {
+    font-size: 3rem;
+  }
+
+  .automotive-unique-carousel-caption p {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .automotive-unique-carousel-caption {
+    width: 90%;
+  }
+
+  .automotive-unique-carousel-inner {
+    height: 300px;
+  }
+
+  .automotive-unique-carousel-caption h3 {
+    font-size: 2rem;
+  }
+
+  .automotive-unique-carousel-caption p {
+    font-size: 1.3rem;
+  }
+}
+.automotive-unique-card:nth-child(1) {
+  background: #e0f7fa;
+}
+
+.automotive-unique-card:nth-child(2) {
+  background: #f3e5f5;
+}
+
+.automotive-unique-card:nth-child(3) {
+  background: #ffebcc;
+}
+
+.automotive-unique-content {
+  margin-top: 50px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.automotive-unique-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #333;
+  text-shadow: 1.5px 1.5px #666;
+}
+.automotive-unique-content h2:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.automotive-unique-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.automotive-unique-cards {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.automotive-unique-card {
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 30%;
+  margin: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.automotive-unique-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.automotive-unique-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.automotive-unique-card p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.automotive-unique-content .para-1 {
+  color: #00e1ff;
+}
+.automotive-unique-content .para-2 {
+  color: #f6a224;
+}
+.automotive-unique-content .para-3 {
+  color: #d107f0;
+}
+@media (max-width: 720px) {
+  .automotive-unique-card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  .automotive-unique-card {
+    width: 90%;
+  }
+}

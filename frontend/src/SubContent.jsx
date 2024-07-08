@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
-import './Footer.css';
-import { FiChevronDown, FiChevronRight } from 'react-icons/fi';
+import React, { useState, useEffect, useRef } from "react";
+import "./Footer.css";
+import { FiChevronDown, FiChevronRight } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
-const SubContent = ({ title, subItems }) => {
+const SubContent = ({ title, subItems, links }) => {
   const [showContent, setShowContent] = useState(false);
   const [showMore, setShowMore] = useState(false);
   const contentRef = useRef(null);
@@ -34,13 +35,17 @@ const SubContent = ({ title, subItems }) => {
   };
 
   return (
-    <div className='subcontent pt-5' ref={contentRef}>
-      <div className='subcontent-header'>
-        <h1 className={`font-mono font-extrabold text-lg text-green-300 lg:mt-0 md:mt-5 sm:mt-5 ${showContent ? 'slide-in' : ''}`}>
+    <div className="subcontent pt-5" ref={contentRef}>
+      <div className="subcontent-header">
+        <h1
+          className={`font-mono font-extrabold text-lg text-green-300 lg:mt-0 md:mt-5 sm:mt-5 ${
+            showContent ? "slide-in" : ""
+          }`}
+        >
           {title}
         </h1>
         <button
-          className={`toggle-button ${showContent ? 'slide-in' : ''} lg:hidden`} // Hide on screens larger than lg (1024px)
+          className={`toggle-button ${showContent ? "slide-in" : ""} lg:hidden`} // Hide on screens larger than lg (1024px)
           onClick={toggleShowMore}
         >
           {showMore ? (
@@ -50,12 +55,15 @@ const SubContent = ({ title, subItems }) => {
           )}
         </button>
       </div>
-      <ul className={`subcontent-list ${showMore ? 'show' : ''}`}>
+      <ul className={`subcontent-list ${showMore ? "show" : ""}`}>
         {subItems.map((item, index) => (
-          <li key={index} className={`subitem ${showContent ? 'slide-in' : ''}`}>
-            <a href="#" className='text-green-100'>
+          <li
+            key={index}
+            className={`subitem ${showContent ? "slide-in" : ""}`}
+          >
+            <Link to={links[index]} className="text-green-100">
               {item}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
